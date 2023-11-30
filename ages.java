@@ -11,7 +11,7 @@ public class ages
     public static void main(String[]args)
     {
         Scanner leer = new Scanner(System.in);
-        DecimalFormat formato =  new DecimalFormat("##.##");
+        DecimalFormat formato =  new DecimalFormat("0.00");
 
         ArrayList<Integer> lista = new ArrayList<Integer>();
         float resultado;
@@ -37,7 +37,10 @@ public class ages
         }
         
         resultado = sumaElementos / contadorIteracones;
+  
         resultado = Float.parseFloat(formato.format(resultado));
-        System.out.println(resultado);
+        
+        System.out.printf("%.2f\n",resultado);
+    
     }
 }
