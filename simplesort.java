@@ -1,38 +1,47 @@
 // BEE 1042 - Simple Sort - Level 1
 
+// 7 21 -14
+
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class simplesort {
     public static void main(String[] args) {
     Scanner leer = new Scanner(System.in);
-    // Array to save the 3 requested numbers
-    ArrayList<Integer> numeros = new ArrayList<Integer>(3);
-    for(int i = 0; i<3; i++)
+    // Defining a stack.
+
+    Stack<Integer> pilaNumeros = new Stack<Integer>();
+    ArrayList<Integer> sortedNumbers = new ArrayList<Integer>();
+    // Reading the values and pushing onto the stack.
+    for(int i = 0; i < 3; i++)
     {
-        numeros.add(leer.nextInt());
+        pilaNumeros.push(leer.nextInt());
     }
 
-    // Array where we're gonna save the comparisions
-    ArrayList<Integer> sortedNumbers = new ArrayList<Integer>();
-    int menor = numeros.get(0);
-
-    // While the original array has elements...
+    // Comparisions with the values of the stack.
+    int lowerValue = pilaNumeros.elementAt(0); // 7
+    int j = 0; // iterator.
     do {
-        for(Integer element: numeros)
-        {
-            if(element <= menor)
-            {
-                menor = element;
+       if(j < 3)
+       {
+
+           // 7 -> 7 ? true, 7 -> 21 ? true, then 7 -> -14 ? false, then -14 is the lower.
+           if(pilaNumeros.elementAt(j) <= lowerValue)
+           {
+               lowerValue = pilaNumeros.elementAt(j);
+               sortedNumbers.add(lowerValue);
+            }else{
+                j++;
             }
-        }
-        sortedNumbers.add(menor);
-    } while (sortedNumbers.size()<3);
+            pilaNumeros.remove(lowerValue);
+            j = 0;
+        } 
 
-  
 
-    
+    } while (!pilaNumeros.empty());
 
-    
+
+    System.out.println(sortedNumbers);
     }
 }
