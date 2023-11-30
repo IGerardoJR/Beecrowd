@@ -1,3 +1,4 @@
+// BEE 1157 - Divisors I - Level 1
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ public class divisors {
         n = leer.nextInt();
 
         ArrayList<Integer> divisores = new ArrayList<Integer>();
-        for(int i = n; i>0 ;i--)
+        for(int i = 1; i<=n ;i++)
         {
             if(n % i == 0)
             {
@@ -25,3 +26,6 @@ public class divisors {
         leer.close();
     }
 }
+
+
+//72 36
