@@ -17,6 +17,7 @@ public class ages
         float resultado;
         float sumaElementos = 0.0f;
         int currentNumber = 0;
+        int contadorIteracones = 0;
 
         do {
             currentNumber = leer.nextInt();
@@ -29,9 +30,14 @@ public class ages
             if(elemento >= 0)
             {
                 sumaElementos += elemento;
+                contadorIteracones++;
+                // System.out.println("Suma actual:"+sumaElementos);
             }
+            
         }
-        resultado = sumaElementos / lista.size();
+        
+        resultado = sumaElementos / contadorIteracones;
         resultado = Float.parseFloat(formato.format(resultado));
+        System.out.println(resultado);
     }
 }
